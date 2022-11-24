@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Orologio</title>
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="icon" href="img/icona_orologio.png">
+    </head>
+    <body>
+
+        <div class="topmenu">
+            <ul class="topmenu">
+                <li>
+                    <a href="cronometro.html">Cronometro</a>
+                </li>
+                <li>
+                    <form>
+                        <select name="sfuo" id="sfuo" onChange="oraEsatta()">
+                            <option value="roma">Roma</option>
+                            <option value="la">San Francisco</option>
+                            <option value="ny">New York</option>
+                            <option value="lnd">Londra</option>
+                            <option value="msc">Mosca</option>
+                            <option value="hk">Pechino</option>
+                            <option value="tky">Tokyo</option>
+                            <option value="syd">Sydney</option>
+                        </select>
+                    </form>
+                </li>
+                <li>
+                    <a href="timer.html">Timer</a>
+                </li>
+            </ul>
+        </div>
+        <div class="allineamento">
+            <div id="orologio" class="titolo_centrato"></div>
+            <div id="data" class="sottotitolo_centrato"></div>
+        </div>
+    <script src="https://momentjs.com/downloads/moment-with-locales.js"></script>
+    <script src="https://momentjs.com/downloads/moment-timezone-with-data.js"></script>
+    <script src="js/script_orologio.js" type="text/javascript"></script>
+    </body>
+</html>

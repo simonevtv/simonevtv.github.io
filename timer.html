@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Timer</title>
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="icon" href="img/icona_orologio.png">
+    </head>
+    <body>
+        <div class="topmenu">
+            <ul class="topmenu">
+                <li>
+                    <a href="orologio.html">Orologio</a>    
+                </li>
+                <li>
+                    <form>
+                        <select name="selsuono" id="selsuono">
+                            <option value="sel">-- seleziona un suono per la fine del timer --</option>
+                            <option value="beep">Classic beep</option>
+                            <option value="gallo">Canto del gallo</option>
+                            <option value="emergency">Allarme d'emergenza</option>
+                            <option value="trumpet">Tromba</option>
+                        </select>
+                    </form>
+                </li>
+                <li>
+                    <a href="cronometro.html">Cronometro</a>
+                </li>
+            </ul>
+        </div>
+        <div class="allineamento">
+            <div id="timer" class="titolo_centrato">00:00</div>
+            <div class="sottotitolo_centrato">
+                <form>
+                    <input type="button" class="bottone" id="start" value="start" onclick="controlloTimer()"/>
+                    <input type="number" class="casella-input" id="min" min="0" max="59"/>
+                    <input type="number" class="casella-input" id="sec" min="1" max="59"/>
+                    <input type="reset" class="bottone" id="reset" value="reset"/>
+                </form>
+            </div>
+            <div id="pausa"></div>
+        </div>
+    <script src="js/script_timer.js" type="text/javascript"></script>
+    </body>
+</html>

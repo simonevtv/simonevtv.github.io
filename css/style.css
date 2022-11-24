@@ -1,0 +1,105 @@
+@import url('https://fonts.cdnfonts.com/css/digital-7-mono');
+
+@font-face{
+    font-family: 'Digital-7 Mono', sans-serif;
+    src: url('https://fonts.cdnfonts.com/css/digital-7-mono');
+}
+
+body{
+    background-color: #3E4444;
+    font-family: sans-serif;
+}
+
+div.allineamento{
+    margin-top: 15%;
+    text-align: center;
+}
+
+div.titolo_centrato{
+    font-size: 180px;
+    font-family: Digital-7 Mono;
+    color: #FF7B25;
+    user-select: none;
+}
+
+div.sottotitolo_centrato{
+    margin-top: 1.5%;
+}
+
+div#data{
+    margin-top: 3%;
+    font-size: 24px;
+    color: white;
+    user-select: none;
+}
+
+.bottone{
+    background-color: #3E4444;
+    color: #FF7B25;
+    margin-left: 0.5%;
+    margin-right: 0.5%;
+    border: 2px outset #2d3030;
+}
+
+.bottone:hover{
+    background-color: #FF7B25;
+    color: #3E4444;
+}
+
+.bottone:active{
+    color:yellow;
+    border: 2px outset #c25f1f;
+}
+
+.casella-input{
+    border: 1px solid #FF7B25;
+    background-color: #3E4444;
+    color: white;
+    margin-left: 0.5%;
+    margin-right: 0.5%;
+}
+
+select{
+  border: 2px solid #3E4444;
+}
+
+div.topmenu{
+    background-color: #FF7B25;
+    height: 60px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+ul.topmenu{
+    list-style: none;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0px auto;
+    width: 1000px;
+    height: 100%;
+    display: flex;
+    padding-left: 0;
+}
+
+ul.topmenu li a{
+    color: white;
+    text-decoration: none;
+    font-family: sans-serif;
+}
+
+ul.topmenu li a:hover{
+    text-decoration: underline;
+}
+
+ul.topmenu li select{
+    background-color: #3E4444;
+    color: white;
+}
+
+*{margin: 0;user-select: none}  /*gloablmente, per rendere il menu superiore largo e non far selezionare il testo*/
+
+div#pausa img{
+    margin-top: 3%;
+    width: 100px;
+    height: 100px;
+}
