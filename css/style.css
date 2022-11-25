@@ -10,19 +10,19 @@ body{
     font-family: sans-serif;
 }
 
-div.allineamento{
+.allineamento{
     margin-top: 15%;
     text-align: center;
 }
 
-div.titolo_centrato{
+.titolo_centrato{
     font-size: 180px;
     font-family: Digital-7 Mono;
     color: #FF7B25;
     user-select: none;
 }
 
-div.sottotitolo_centrato{
+.sottotitolo_centrato{
     margin-top: 1.5%;
 }
 

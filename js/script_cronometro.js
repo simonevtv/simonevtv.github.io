@@ -11,16 +11,16 @@ var cs=0,s=0,m=0,h=0;
 
 function startCron(){
     cs++;
-    if(cs==100){
+    if(cs>99){
         s++;
         cs=0;
-        if(s==60){
+        if(s>59){
             m++;
             s=0;
-            if(m==60){
+            if(m>60){
                 h++;
                 m=0;
-                if(h==99)
+                if(h>99)
                     clearInterval(t);
             }
         }

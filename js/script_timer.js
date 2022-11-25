@@ -27,10 +27,15 @@ function controlloTimer(){
         min = parseInt(document.getElementById("min").value);
         sec = parseInt(document.getElementById("sec").value);
 
-        if(isNaN(min)&&!isNaN(sec)&&sec>0)
+        if(isNaN(min)&&!isNaN(sec))
             min = 0;
-        else if(isNaN(sec)&&!isNaN(min)&&min>0)
+        else if(isNaN(sec)&&!isNaN(min))
             sec = 0;
+
+        if(min==0&&sec==0){
+            sec = NaN;
+            min = NaN;
+        }
 
         if(isNaN(min)&&isNaN(sec))
             alert("Errore: Inserire almeno uno dei due valori.");
@@ -65,7 +70,7 @@ function startTimer(){
     }
 
     tsec--;
-    if(tsec==-1)//ferma lo scorrere del tempo quando finisce il totale dei secondi (-1 perché il risultato viene "stampato" prima del calcolo, quindi serve fare un altro giro per mostrare l'ultimo risultato)
+    if(tsec<0)//ferma lo scorrere del tempo quando finisce il totale dei secondi (-1 perché il risultato viene "stampato" prima del calcolo, quindi serve fare un altro giro per mostrare l'ultimo risultato)
         endTimer();
 }
 
@@ -82,10 +87,39 @@ function endTimer(){
     min = sec = tsec = 0;
     flag = false;
 
+    btn_pause.innerHTML = "";
+
     if(suono!="")
         suono.play();
 
-    btn_pause.innerHTML = "";
+    lampeggiaFine();
+}
+
+function lampeggiaFine(){
+    var f;
+    var flag_lamp=false;
+    var conta_lamp=0;
+    
+    var form = document.getElementById("form");
+    var temp = form.innerHTML;
+    form.innerHTML = ""; 
+    
+    f = setInterval(function(){
+        if(!flag_lamp){
+            div_timer.innerHTML = "<span class='titolo_centrato'>TIMER TERMINATO!</span>";
+            flag_lamp = true;
+        }
+        else{
+            div_timer.innerHTML = "";
+            flag_lamp = false;
+        }
+        conta_lamp++;
+        if(conta_lamp>10){
+            clearInterval(f);
+            div_timer.innerHTML = "00:00";
+            form.innerHTML = temp;
+        }
+    },500);
 }
 
 //reset
