@@ -1,3 +1,6 @@
+var sel = document.getElementById("sfuo");
+sel.addEventListener("change",function(){oraEsatta()});
+
 function oraEsatta(){
     //ora
     var o = moment();  //si crea la variabile o e gli si da il momento
@@ -12,13 +15,12 @@ function oraEsatta(){
     document.getElementById("data").innerHTML = d;
     
     //timeout
-    var t = setTimeout(function(){oraEsatta()},1000);
+    var t = setInterval(function(){oraEsatta()},1000);
 }
 
 oraEsatta();
 
 function fusoOrario(t){
-    var sel = document.getElementById("sfuo");
     switch(sel.value){
         case 'roma':
             t = t.tz('Europe/Rome');

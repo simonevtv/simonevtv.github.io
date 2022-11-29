@@ -48,7 +48,6 @@ function controlloTimer(){
                 min += parseInt(sec/60);
                 sec = sec%60;
             }
-            tsec = sec+(min*60);
             startTimer();
             start = setInterval(function(){startTimer()},1000);
             btn_pause.innerHTML = "<img src='img/pause.png' alt='PAUSA'>";
@@ -69,8 +68,7 @@ function startTimer(){
         sec=59;
     }
 
-    tsec--;
-    if(tsec<0)//ferma lo scorrere del tempo quando finisce il totale dei secondi (-1 perché il risultato viene "stampato" prima del calcolo, quindi serve fare un altro giro per mostrare l'ultimo risultato)
+    if(sec+(min*60)<0)//ferma lo scorrere del tempo quando finisce il totale dei secondi (-1 perché il risultato viene "stampato" prima del calcolo, quindi serve fare un altro giro per mostrare l'ultimo risultato)
         endTimer();
 }
 
@@ -82,12 +80,7 @@ function dueCifre(u){
 
 //fine timer e suono
 function endTimer(){
-    clearInterval(start);
-    div_timer.innerHTML = "00:00";
-    min = sec = tsec = 0;
-    flag = false;
-
-    btn_pause.innerHTML = "";
+    resetTimer();
 
     if(suono!="")
         suono.play();
@@ -106,7 +99,7 @@ function lampeggiaFine(){
     
     f = setInterval(function(){
         if(!flag_lamp){
-            div_timer.innerHTML = "<span class='titolo_centrato'>TIMER TERMINATO!</span>";
+            div_timer.innerHTML = "<span class='titolo_centrato'>TEMPO SCADUTO!</span>";
             flag_lamp = true;
         }
         else{
@@ -123,13 +116,13 @@ function lampeggiaFine(){
 }
 
 //reset
-document.getElementById("reset").addEventListener("click",function(){
+function resetTimer(){
     clearInterval(start);
     div_timer.innerHTML = "00:00";
-    min = sec = tsec = 0;
+    min = sec = 0;
     flag = false;
     btn_pause.innerHTML = "";
-});
+}
 
 //cambio di suono
 sel_suono.addEventListener("change",function(){
