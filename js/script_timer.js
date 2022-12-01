@@ -11,7 +11,7 @@ var btn_pause = document.getElementById("pausa");
 btn_pause.addEventListener("click",function(){
     if(!flag_pausa){
         clearInterval(start);
-        btn_pause.innerHTML = "<img src='img/play.png' alt='PAUSA'>";
+        btn_pause.innerHTML = "<img src='img/play.png' alt='PLAY'>";
         flag_pausa = true;
     }
     else{
@@ -21,7 +21,6 @@ btn_pause.addEventListener("click",function(){
     }
 });
 
-//controlliamo i valori prima di far partire il timer
 function controlloTimer(){
     if(!flag){
         min = parseInt(document.getElementById("min").value);
@@ -58,17 +57,16 @@ function controlloTimer(){
         alert("Attenzione: Il timer sta gia essendo utilizzato.")
 }
 
-//parte il tempo
 function startTimer(){
     div_timer.innerHTML = dueCifre(min)+":"+dueCifre(sec);
 
     sec--;
-    if(sec<0&&min!=0){  //finché non scadono i secondi in un minuto e ci sono ancora minuti da scorrere
+    if(sec<0&&min!=0){
         min--;
         sec=59;
     }
 
-    if(sec+(min*60)<0)//ferma lo scorrere del tempo quando finisce il totale dei secondi (-1 perché il risultato viene "stampato" prima del calcolo, quindi serve fare un altro giro per mostrare l'ultimo risultato)
+    if(sec+(min*60)<0)
         endTimer();
 }
 
@@ -78,7 +76,6 @@ function dueCifre(u){
     return u;
 }
 
-//fine timer e suono
 function endTimer(){
     resetTimer();
 
@@ -115,7 +112,6 @@ function lampeggiaFine(){
     },500);
 }
 
-//reset
 function resetTimer(){
     clearInterval(start);
     div_timer.innerHTML = "00:00";
@@ -124,7 +120,6 @@ function resetTimer(){
     btn_pause.innerHTML = "";
 }
 
-//cambio di suono
 sel_suono.addEventListener("change",function(){
     var selaudio = "audio/"+sel_suono.value+".mp3";
     suono = new Audio(selaudio);

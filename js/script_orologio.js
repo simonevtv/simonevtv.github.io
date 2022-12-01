@@ -2,19 +2,17 @@ var sel = document.getElementById("sfuo");
 sel.addEventListener("change",function(){oraEsatta()});
 
 function oraEsatta(){
-    //ora
-    var o = moment();  //si crea la variabile o e gli si da il momento
-    o = fusoOrario(o);  //si manda al cambio di fusorario, in base alla selezione dell'utente
-    o = o.lang("it").format('LTS');  //si cambiano le impostazioni di lingua e di formato
+    
+    var o = moment();
+    o = fusoOrario(o);
+    o = o.lang("it").format('LTS');
     document.getElementById("orologio").innerHTML = o;
 
-    //data
     var d = moment();
     d = fusoOrario(d);
     d = d.lang("it").format('dddd, D MMMM YYYY');
     document.getElementById("data").innerHTML = d;
     
-    //timeout
     var t = setInterval(function(){oraEsatta()},1000);
 }
 

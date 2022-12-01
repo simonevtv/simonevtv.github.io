@@ -40,11 +40,13 @@ div#data{
     margin-left: 0.5%;
     margin-right: 0.5%;
     border: 2px outset #2d3030;
+    user-select: none;
 }
 
 .bottone:hover{
     background-color: #FF7B25;
     color: #3E4444;
+    cursor: pointer;
 }
 
 .bottone:active{
@@ -80,6 +82,7 @@ ul.topmenu{
     height: 100%;
     display: flex;
     padding-left: 0;
+    user-select: none;
 }
 
 ul.topmenu li a{
@@ -97,7 +100,7 @@ ul.topmenu li select{
     color: white;
 }
 
-*{margin: 0;user-select: none}  /*gloablmente, per rendere il menu superiore largo e non far selezionare il testo*/
+*{margin: 0}
 
 div#pausa img{
     margin-top: 3%;
